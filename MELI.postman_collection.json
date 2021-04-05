@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "1277558f-3d89-41bc-82d4-cd523f75d870",
+		"name": "MELI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://me.li:8443/borrar/{{$randomInt}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 10ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://me.li:8443/borrar/{{$randomInt}}",
+					"protocol": "https",
+					"host": [
+						"me",
+						"li"
+					],
+					"port": "8443",
+					"path": [
+						"borrar",
+						"{{$randomInt}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://me.li:8443/url/acortar",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 10ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(10);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\" : \"{{$randomUrl}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://me.li:8443/url/acortar",
+					"protocol": "https",
+					"host": [
+						"me",
+						"li"
+					],
+					"port": "8443",
+					"path": [
+						"url",
+						"acortar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://me.li:8443/listado_url",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://me.li:8443/listado_url",
+					"protocol": "https",
+					"host": [
+						"me",
+						"li"
+					],
+					"port": "8443",
+					"path": [
+						"listado_url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://me.li:8443/eventos?fecha_desde=04-04-2021 07:00&fecha_hasta=06-04-2021 21:00",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://me.li:8443/eventos?fecha_desde=04-04-2021 07:00&fecha_hasta=06-04-2021 21:00",
+					"protocol": "https",
+					"host": [
+						"me",
+						"li"
+					],
+					"port": "8443",
+					"path": [
+						"eventos"
+					],
+					"query": [
+						{
+							"key": "fecha_desde",
+							"value": "04-04-2021 07:00"
+						},
+						{
+							"key": "fecha_hasta",
+							"value": "06-04-2021 21:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://me.li:8443/url/original",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\" : \"https://me.li:8443/KNSAPO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://me.li:8443/url/original",
+					"protocol": "https",
+					"host": [
+						"me",
+						"li"
+					],
+					"port": "8443",
+					"path": [
+						"url",
+						"original"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
